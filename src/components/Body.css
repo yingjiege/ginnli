@@ -1,0 +1,86 @@
+.body {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-container label {
+    margin-right: 10px;
+  }
+  
+  .input-container input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+  }
+  
+  .input-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .input-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .anime-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+    position: relative; /* Required for absolute positioning */
+    width: 500px; /* Adjust container width as needed */
+    height: 500px; /* Adjust container height as needed */
+    margin: 0 auto; /* Center container */
+    border-radius: 50%; /* Make container circular */
+    overflow: hidden; /* Hide overflow to hide elements outside the circle */
+  }
+  
+  .anime-heading {
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .elements {
+    position: absolute; /* Position elements relative to the circle container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center elements */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .element {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .element.highlighted {
+    background-color: red; /* Example highlight color */
+  }
+  
+  
