@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Body.css'; // Example CSS for styling
 import Window from './Window'; // Import Window component
 import { getGanZhi } from './ganZhi'; // Adjust the path as necessary
+import { getGanZhiDetail} from './ganZhiDetail';
 
 const Body = () => {
   const [dateOfBirth, setDateOfBirth] = useState('');
@@ -12,6 +13,9 @@ const Body = () => {
   const [lessElement, setLessElement] = useState('')
   const radius = 150; // Radius of the circle
   const elements = ['Gold', 'Wood', 'Water', 'Fire', 'Earth'];
+  const [time, setTime] = useState('');
+
+    
 
   const handleDateChange = (event) => {
     let inputDate = event.target.value;
@@ -66,20 +70,28 @@ const Body = () => {
 
   const handleEnterClick = () => {
 
-    console.log(dateOfBirth)
     const parts = dateOfBirth.split('/');
+    const timeNumber = time.split(':').map(Number)
 
 // Extract month, day, and year from the parts array
     const month = Number(parts[0]) ; // '06'
     const day =Number(parts[1]) ;   // '23'
     const year = parts[2];  // '2000'
 
-    const extremes = getExtremes(getGanZhi(year, month, day));
-    console.log(getGanZhi(year, month, day))
-    setMostElement(extremes.maxElements.join(', '));
+    if(timeNumber){
+      const extremes =  getExtremes(getGanZhiDetail(year, month, day, time));
+      setMostElement(extremes.maxElements.join(', '));
     setLessElement(extremes.minElements.join(', '));
     setShowResultModal(true);
 
+    }
+    else{
+      const extremes = getExtremes(getGanZhi(year, month, day));
+      setMostElement(extremes.maxElements.join(', '));
+    setLessElement(extremes.minElements.join(', '));
+    setShowResultModal(true);
+
+    }
     // setAnimationActive(true);
 
     // // Simulate animation stop after 3 seconds
@@ -125,6 +137,21 @@ const Body = () => {
     console.log('Less Element:', lessElement);
   }, [lessElement]);
 
+  const handleTimeChange = (event) => {
+    let inputTime = event.target.value;
+
+    // Remove non-numeric characters
+    inputTime = inputTime.replace(/[^0-9]/g, '');
+
+    // Format the input to HH:MM if we have exactly 4 digits
+    if (inputTime.length === 4) {
+        inputTime = inputTime.slice(0, 2) + ':' + inputTime.slice(2, 4);
+    }
+
+    // Update the state
+    setTime(inputTime);
+  }
+
   return (
     <div className="body">
       <div className="input-container">
@@ -141,8 +168,21 @@ const Body = () => {
             }
           }}
         />
-        <button onClick={handleEnterClick}>Enter</button>
-      </div>
+            <label htmlFor="timeInput">Time: </label>
+            <input
+                id="timeInput"
+                type="text"
+                value={time}
+                onChange={handleTimeChange}
+                placeholder="HH:MM"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleEnterClick();
+                  }
+                }}
+            />
+             <button onClick={handleEnterClick}>Enter</button>
+        </div>
       
       {/* <div className="anime-container">
         <h2 className="anime-heading">Choose Your Element</h2>
