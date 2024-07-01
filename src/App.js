@@ -8,10 +8,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-<<<<<<< HEAD
-=======
           <Route path="/ginnli" element={<Home />} />
->>>>>>> 99fb0533cf22654ddbcae355f6fceff5e5b85478
           {/* Add more routes as needed */}
         </Routes>
       </div>
