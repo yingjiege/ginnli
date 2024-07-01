@@ -8,7 +8,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/ginnli" element={<Home />} />
+          <Route path="/" element={<Home />} />
           {/* Use 'element' prop instead of 'component' */}
           {/* Add more routes as needed */}
         </Routes>
