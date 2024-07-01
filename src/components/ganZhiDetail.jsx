@@ -177,36 +177,3 @@ const tianGanWuXing = [
     return wuXingCount ;
   }
   
-  
-  // // 计算八字函数
-  // function calculateBaZi(year, month, day, hour) {
-  //   // 计算年柱天干和地支
-  //   const yearTianGanIndex = (year - 3) % 10;
-  //   const yearDiZhiIndex = (year - 3) % 12;
-  //   const yearTianGan = tianGan[yearTianGanIndex];
-  //   const yearDiZhi = diZhi[yearDiZhiIndex];
-  
-  //   // 计算月柱天干和地支
-  //   const monthTianGanIndex = (month - 1) % 10; // 月份从1开始，所以要减1
-  //   const monthDiZhiIndex = (month - 1) % 12;
-  //   const monthTianGan = tianGan[monthTianGanIndex];
-  //   const monthDiZhi = diZhi[monthDiZhiIndex];
-  
-  //   // 计算日柱天干和地支
-  //   const dayTianGanIndex = (day - 1) % 10; // 日从1开始，所以要减1
-  //   const dayDiZhiIndex = (day - 1) % 12;
-  //   const dayTianGan = tianGan[dayTianGanIndex];
-  //   const dayDiZhi = diZhi[dayDiZhiIndex];
-  
-  //   // 计算时柱天干和地支
-  //   const hourTianGanIndex = (hour - 1) % 10; // 时辰从1开始，所以要减1
-  //   const hourDiZhiIndex = (hour - 1) % 12;
-  //   const hourTianGan = tianGan[hourTianGanIndex];
-  //   const hourDiZhi = diZhi[hourDiZhiIndex];
-  
-  //   // 组合成八字
-  //   const bazi = `${yearTianGan}${yearDiZhi} ${monthTianGan}${monthDiZhi} ${dayTianGan}${dayDiZhi} ${hourTianGan}${hourDiZhi}`;
-  
-  //   return bazi;
-  // }
-  
