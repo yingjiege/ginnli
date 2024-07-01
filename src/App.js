@@ -1,7 +1,6 @@
 import React from 'react';
-import { HashRouter  as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'; // Example page component
-import ProductList from './components/ProductList'; // Example component
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* Use 'element' prop instead of 'component' */}
+          <Route path="/ginnli" element={<Home />} />
           {/* Add more routes as needed */}
         </Routes>
       </div>
